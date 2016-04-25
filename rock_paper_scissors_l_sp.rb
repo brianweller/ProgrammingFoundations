@@ -28,7 +28,7 @@ end
 		
 VALID_CHOICES = %w(r p sc l sp).freeze
 
-CHOICES = {'r' => 'rock', 
+CHOICES = {'r' => 'rock',
 					'p' => 'paper', 
 					'sc' => 'scissors',
 					'l' => 'lizard',
