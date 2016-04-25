@@ -2,24 +2,43 @@
 # rock_paper_scissors_l_sp.rb
 # Variation on the typical rps game
 
+# indent method
 def say (message)
 	Kernel.puts "=> #{message}"
 end
 
+# method that shows results per round
+def show_results (user, comp)
+	if winner(user, comp)
+		say "You won that round!"
+	elsif winner(comp, user)
+		say "The computer won that round.."
+	else
+		say "That round was a TIE"
+	end
+end
+
+def winner (one, two)
+	WINNING_PAIRS[one].include?(two)
+end
+
+def move (choice)
+	CHOICES[choice]
+end
+		
 VALID_CHOICES = %w(r p sc l sp).freeze
 
 CHOICES = {'r' => 'rock', 
 					'p' => 'paper', 
 					'sc' => 'scissors',
 					'l' => 'lizard',
-					'sp' => 'spock'}
+					'sp' => 'spock'}.freeze
 
 WINNING_PAIRS = {'r' => %w(sc l),
 								'p' => %w(r sp),
 								'sc' => %w(p sc),
 								'l' => %w(sp p),
-								'sp' => %w(sc r)}
-
+								'sp' => %w(sc r)}.freeze
 
 
 welcome = <<-MSG 
@@ -48,8 +67,10 @@ comp_score = 0
 
 choice = ''
 
-while user_score && comp_score < 5
+# main loop 
+while user_score < 5 && comp_score < 5
 
+	# loop to verify a valid input
 	loop do 
 		say (prompt_to_user)
 		choice = Kernel.gets.chomp
@@ -61,10 +82,36 @@ while user_score && comp_score < 5
 		end	
 	end
 
+	# get comp random choice
 	comp_choice = VALID_CHOICES.sample
-	say "You chose "
+	
+	say "You chose #{move(choice)}; 
+				While the computer chose #{move(comp_choice)}."
+
+	show_results(choice, comp_choice)
+
+	# add 1 when win
+	if winner(choice, comp_choice)
+		user_score += 1
+	elsif winner(comp_choice, choice)
+		comp_score += 1
+	end
+
+	# tell the user the score
+	say "You have #{user_score} wins"
+	say "And the computer has #{comp_score} wins."
 
 end
+
+	if user_score == 5
+		say "Congrats, you won the Game!"
+		say "The score was #{user_score} to #{comp_score}."
+	else
+		say "The computer won the game..."
+		say "The score was #{comp_score} to #{user_score}. Maybe next time!"
+	end
+
+	say "Thank you for playing."
 
 
 
