@@ -102,7 +102,7 @@ while user_score < 5 && comp_score < 5
 	say "And the computer has #{comp_score} wins."
 
 	if user_score == 4 && comp_score == 4
-		say "SUDDEN DEATH"
+		say "-----SUDDEN DEATH-----"
 	end
 
 	if user_score == 4
