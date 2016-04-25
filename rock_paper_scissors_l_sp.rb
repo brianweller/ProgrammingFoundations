@@ -53,7 +53,7 @@ MSG
 
 prompt_to_user = <<-MSG
 	Please Choose One:
-			'r' for rock
+  		 'r' for rock
 		  'p' for paper
 		  'sc' for scissors
 		  'l' for lizard
@@ -101,6 +101,18 @@ while user_score < 5 && comp_score < 5
 	say "You have #{user_score} wins"
 	say "And the computer has #{comp_score} wins."
 
+	if user_score == 4 && comp_score == 4
+		say "SUDDEN DEATH"
+	end
+
+	if user_score == 4
+		say "One more round win and you WIN..."
+	end
+
+	if comp_score == 4
+		say "The computer only needs one more round win to WIN..."
+	end
+		
 end
 
 	if user_score == 5
