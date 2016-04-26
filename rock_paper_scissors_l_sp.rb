@@ -33,16 +33,16 @@ end
 VALID_CHOICES = %w(r p sc l sp).freeze
 
 CHOICES = { 'r' => 'rock',
-  'p' => 'paper',
-  'sc' => 'scissors',
-  'l' => 'lizard',
-  'sp' => 'spock' }.freeze
+            'p' => 'paper',
+            'sc' => 'scissors',
+            'l' => 'lizard',
+            'sp' => 'spock' }.freeze
 
 WINNING_PAIRS = { 'r' => %w(sc l),
-  'p' => %w(r sp),
-  'sc' => %w(p sc),
-  'l' => %w(sp p),
-  'sp' => %w(sc r) }.freeze
+                  'p' => %w(r sp),
+                  'sc' => %w(p sc),
+                  'l' => %w(sp p),
+                  'sp' => %w(sc r) }.freeze
 
 welcome = <<-MSG
 	----------------------------------------------------
@@ -57,10 +57,10 @@ MSG
 prompt_to_user = <<-MSG
 	Please Choose One:
   		 'r' for rock
-		  'p' for paper
-		  'sc' for scissors
-		  'l' for lizard
-		  'sp' for spock
+		 'p' for paper
+		 'sc' for scissors
+		 'l' for lizard
+		 'sp' for spock
 MSG
 
 say(welcome)
@@ -120,12 +120,12 @@ while user_score < 5 && comp_score < 5
 
 end
 
-  if user_score == 5
-    say 'Congrats, you won the Game!'
-    say 'The score was #{user_score} to #{comp_score}.'
-  else
-    say 'The computer won the game...'
-    say "The score was #{comp_score} to #{user_score}. Maybe next time!"
-  end
+if user_score == 5
+  say 'Congrats, you won the Game!'
+  say 'The score was #{user_score} to #{comp_score}.'
+else
+  say 'The computer won the game...'
+  say "The score was #{comp_score} to #{user_score}. Maybe next time!"
+end
 
-    say 'Thank you for playing.'
+say 'Thank you for playing.'
