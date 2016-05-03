@@ -28,7 +28,7 @@ def joinor(array, middle = ', ', word = 'or')
 end
 
 def display_board(brd)
-  system 'clear' or system 'cls'
+  system 'clear'
   say "Your marker: #{PLAYER_MARKER}. Computer's marker: #{COMPUTER_MARKER}."
   say 'You are playing first to 5 wins...'
   puts '     |     |'
