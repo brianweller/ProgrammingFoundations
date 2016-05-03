@@ -221,6 +221,7 @@ first_turn = first_or_second
 current_player = first_turn
 board = initialize_board
 
+# game loop
 loop do
   display_board(board)
 
@@ -239,7 +240,7 @@ loop do
   break if score[:player_wins] == 5 || score[:computer_wins] == 5
   break if stop_playing?(board, score)
 
-  # gameboard reset
+  # reset
   if board_full?(board) || someone_won?(board)
     current_player = first_turn
     board = initialize_board
